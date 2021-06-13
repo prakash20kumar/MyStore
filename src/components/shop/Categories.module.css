@@ -1,0 +1,28 @@
+.container {
+  background-color: #e7e1e1;
+  height: 92vh;
+  display: flex;
+}
+
+.box {
+  width: 250px;
+  height: 250px;
+  display: flex;
+  border: 2px solid #8f7e7e;
+  margin: 1.5rem;
+  padding: 0.5rem;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  transition: transform 0.2s;
+}
+
+.box:hover {
+  transform: scale(1.1);
+}
+
+.img {
+  width: 230px;
+  height: 230px;
+}

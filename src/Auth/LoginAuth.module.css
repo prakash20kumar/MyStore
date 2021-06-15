@@ -1,12 +1,13 @@
 .btn {
   float: right;
   color: #fbfbfb;
-  background-color: #1f1b1b;
+  background-color: #686de0;
   border: 2px solid #fdfbfb;
   font-size: 1.2rem;
   padding: 6px 10px;
   border-radius: 5px;
   outline: none;
+  font-weight: bold;
 }
 
 .btn:hover {

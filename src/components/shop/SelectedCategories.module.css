@@ -1,5 +1,4 @@
 .container {
-  background-color: #e7e1e1;
   height: 92vh;
   display: flex;
   flex-wrap: wrap;
@@ -22,6 +21,11 @@
 }
 
 .img {
-  width: 230px;
-  height: 230px;
+  width: 232px;
+  height: 220px;
+}
+
+a {
+  color: #41413e;
+  text-decoration: none;
 }

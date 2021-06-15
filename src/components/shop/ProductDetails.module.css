@@ -1,0 +1,57 @@
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid #8080808c;
+  margin: 1rem;
+}
+.title {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.img_container {
+  text-align: center;
+  padding: 2rem;
+}
+.img {
+  width: 400px;
+  transition: transform 0.5s;
+  cursor: pointer;
+}
+
+.img:hover {
+  transform: scale(1.1);
+}
+
+.category_container {
+  border: 1px solid #8080808c;
+}
+
+.category {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  text-align: center;
+  padding: 1rem;
+}
+
+.price_container {
+  padding: 1.5rem;
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.desc_container {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  font-style: italic;
+}

@@ -1,14 +1,10 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import firebase from "./firebase";
-import style from "./LoginBtn.module.css";
+import style from "./LoginAuth.module.css";
 import AuthContext from "./auth-context";
 
-const LoginBtn = (props) => {
+const LoginAuth = () => {
   const authCtx = useContext(AuthContext);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [photoPath, setPhotoPath] = useState("");
-  //   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleClick = () => {
     if (!authCtx.isLoggedIn) {
@@ -19,51 +15,38 @@ const LoginBtn = (props) => {
         .auth()
         .signInWithPopup(provider)
         .then((result) => {
-          /** @type {firebase.auth.OAuthCredential} */
-          const credential = result.credential;
-          // This gives you a Google Access Token. You can use it to access the Google API.
-          const token = credential.accessToken;
-          if (token) {
-            authCtx.login(token);
-            // setIsLoggedIn(true);
-          }
           // The signed-in user info.
           const user = result.user;
-          //console.log(user);
-          setName(user.displayName);
-          setEmail(user.email);
-          setPhotoPath(user.photoURL);
-          console.log(result);
-          //   console.log(isLoggedIn);
-          // ...
+          const token = user.refreshToken;
+          if (token) {
+            authCtx.login(token);
+            authCtx.profile(user);
+          }
         })
         .catch((error) => {
           // Handle Errors here.
           console.log(error);
         });
     } else {
-      firebase
-        .auth()
-        .signOut()
-        .then(() => {
-          authCtx.logout();
-          console.log("Logout successful");
-          //   setIsLoggedIn(false);
-          //   console.log(isLoggedIn);
-
-          // Sign-out successful.
-        })
-        .catch((error) => {
-          // An error happened.
-        });
+      authCtx.logout();
+      console.log("Logout Successful");
     }
   };
 
   return (
-    <button className={style.btn} onClick={handleClick}>
-      {props.children}
-    </button>
+    <>
+      {authCtx.isLoggedIn && (
+        <button className={style.btn} onClick={handleClick}>
+          Sign Out
+        </button>
+      )}
+      {!authCtx.isLoggedIn && (
+        <button className={style.btn} onClick={handleClick}>
+          Sign In
+        </button>
+      )}
+    </>
   );
 };
 
-export default LoginBtn;
+export default LoginAuth;

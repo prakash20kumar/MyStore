@@ -1,15 +1,9 @@
-import { useEffect, useState } from "react";
-const Home = () => {
-  const [categories, setCategories] = useState([]);
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products/categories")
-      .then((res) => res.json())
-      .then((json) => setCategories(json));
-  }, []);
+import Categories from "../shop/Categories";
 
+const Home = () => {
   return (
     <>
-      <h1>HomePage</h1>
+      <Categories />
     </>
   );
 };

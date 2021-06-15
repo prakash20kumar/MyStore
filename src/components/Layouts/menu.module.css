@@ -1,15 +1,22 @@
 .ul {
-  background-color: #1f1b1b;
+  background-color: #4834d4;
   padding: 20px;
+  height: 5rem;
 }
 
 .ul li {
   display: inline;
 }
 
-a {
+li a {
   text-decoration: none;
   font-size: 24px;
   padding: 8px;
-  color: #f8f5f5;
+  color: #f3ebeb;
+  text-shadow: 0 2px 3px #706767;
+}
+
+li a:hover {
+  color: #ffff;
+  font-weight: bold;
 }

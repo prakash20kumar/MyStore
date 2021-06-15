@@ -1,40 +1,53 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import style from "./menu.module.css";
 import LoginAuth from "../../Auth/LoginAuth";
 import AuthContext from "../../Auth/auth-context";
 
-const Products = () => {
+const Menu = () => {
   const authCtx = useContext(AuthContext);
   return (
     <ul className={style.ul}>
       {!authCtx.isLoggedIn ? (
         <>
           <li>
-            <Link to="/">Home</Link>
+            <NavLink activeClassName="active" exact to="/">
+              Home
+            </NavLink>
           </li>
-          <LoginAuth>Login</LoginAuth>
+          <li>
+            <LoginAuth />
+          </li>
         </>
       ) : (
         <>
           <li>
-            <Link to="/">Home</Link>
+            <NavLink exact to="/" activeClassName="active">
+              Home
+            </NavLink>
           </li>
           <li>
-            <Link to="/categories">Categories</Link>
+            <NavLink activeClassName="active" to="/categories">
+              Categories
+            </NavLink>
           </li>
           <li>
-            <Link to="/products">Products</Link>
+            <NavLink activeClassName="active" to="/products">
+              Products
+            </NavLink>
           </li>
           <li>
-            <Link to="/feedback">Feedback</Link>
+            <NavLink activeClassName="active" to="/profile">
+              Profile
+            </NavLink>
           </li>
-
-          <LoginAuth>Logout</LoginAuth>
+          <li>
+            <LoginAuth />
+          </li>
         </>
       )}
     </ul>
   );
 };
 
-export default Products;
+export default Menu;

@@ -1,14 +1,17 @@
+.main {
+  padding: 1.5rem;
+}
 .container {
-  background-color: #e7e1e1;
   height: 92vh;
   display: flex;
+  flex-direction: row;
 }
 
 .box {
   width: 250px;
   height: 250px;
   display: flex;
-  border: 2px solid #8f7e7e;
+  border: 2px solid #ecdbdb;
   margin: 1.5rem;
   padding: 0.5rem;
   text-align: center;
@@ -20,6 +23,7 @@
 
 .box:hover {
   transform: scale(1.1);
+  cursor: pointer;
 }
 
 .img {

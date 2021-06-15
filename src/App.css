@@ -3,3 +3,19 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  background-color: #faf1e6;
+}
+
+.spin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+}
+
+a.active {
+  border-bottom: 2px solid #faf1e6;
+  font-weight: bold;
+}

@@ -2,7 +2,7 @@ import { useContext } from "react";
 import firebase from "./firebase";
 import style from "./LoginAuth.module.css";
 import AuthContext from "./auth-context";
-
+import * as Icon from "react-bootstrap-icons";
 const LoginAuth = () => {
   const authCtx = useContext(AuthContext);
 
@@ -37,11 +37,13 @@ const LoginAuth = () => {
     <>
       {authCtx.isLoggedIn && (
         <button className={style.btn} onClick={handleClick}>
+          <Icon.Google className={style.icon} />
           Sign Out
         </button>
       )}
       {!authCtx.isLoggedIn && (
         <button className={style.btn} onClick={handleClick}>
+          <Icon.Google className={style.icon} />
           Sign In
         </button>
       )}

@@ -1,5 +1,6 @@
 .btn {
-  float: right;
+  position: absolute;
+  right: 0;
   color: #fbfbfb;
   background-color: #686de0;
   border: 2px solid #fdfbfb;
@@ -8,10 +9,17 @@
   border-radius: 5px;
   outline: none;
   font-weight: bold;
+  margin-right: 1rem;
 }
 
 .btn:hover {
   color: #1f1b1b;
   background-color: #fbfbfb;
   cursor: pointer;
+}
+
+.icon {
+  margin-right: 0.8rem;
+  font-size: 1.2rem;
+  margin-bottom: -3px;
 }

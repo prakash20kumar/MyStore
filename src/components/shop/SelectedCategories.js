@@ -15,7 +15,6 @@ const SelectCategories = () => {
       .then((data) => {
         setIsLoading(false);
         setSelectedCategory(data);
-        console.log(data);
       });
   }, [category]);
 
@@ -26,21 +25,22 @@ const SelectCategories = () => {
           <MoonLoader color={"#4834d4"} loading={true} size={100} />
         </div>
       )}
-
-      <div className={style.container}>
-        {selectedCategory.map((product) => {
-          return (
-            <Card
-              key={product.id}
-              image={product.image}
-              id={product.id}
-              category={product.category}
-              title={product.title}
-              price={product.price}
-            />
-          );
-        })}
-      </div>
+      {!isLoading && (
+        <div className={style.container}>
+          {selectedCategory.map((product) => {
+            return (
+              <Card
+                key={product.id}
+                image={product.image}
+                id={product.id}
+                category={product.category}
+                title={product.title}
+                price={product.price}
+              />
+            );
+          })}
+        </div>
+      )}
     </>
   );
 };

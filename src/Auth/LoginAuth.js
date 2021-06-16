@@ -18,9 +18,14 @@ const LoginAuth = () => {
           // The signed-in user info.
           const user = result.user;
           const token = user.refreshToken;
+          const profileDetails = {
+            name: user.displayName,
+            email: user.email,
+            img: user.photoURL,
+          };
           if (token) {
             authCtx.login(token);
-            authCtx.profile(user);
+            authCtx.profile(profileDetails);
           }
         })
         .catch((error) => {

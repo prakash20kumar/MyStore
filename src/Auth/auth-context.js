@@ -6,13 +6,14 @@ const AuthContext = React.createContext({
   isLoggedIn: false,
   login: (token) => {},
   logout: () => {},
-  profile: (user) => {},
+  profile: (profileDetails) => {},
 });
 
 export const AuthContextProvider = (props) => {
   const tokenData = localStorage.getItem("token");
   const [token, setToken] = useState(tokenData);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [img, setImg] = useState();
@@ -38,10 +39,10 @@ export const AuthContextProvider = (props) => {
       });
   };
 
-  const userHandler = (user) => {
-    setName(user.displayName);
-    setEmail(user.email);
-    setImg(user.photoURL);
+  const userHandler = (profileDetails) => {
+    setName(profileDetails.name);
+    setEmail(profileDetails.email);
+    setImg(profileDetails.img);
   };
 
   firebase.auth().onAuthStateChanged((user) => {
@@ -52,7 +53,12 @@ export const AuthContextProvider = (props) => {
         // https://firebase.google.com/docs/reference/js/firebase.User
         setIsLoggedIn(true);
         setToken(token);
-        userHandler(user);
+        const profileDetails = {
+          name: user.displayName,
+          email: user.email,
+          img: user.photoURL,
+        };
+        userHandler(profileDetails);
         localStorage.setItem("token", token);
       }
     } else {

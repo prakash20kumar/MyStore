@@ -16,7 +16,7 @@ const Card = (props) => {
           <p className={style.title}>{props.title}</p>
         </div>
         <div className={style.price_container}>
-          <p className={style.price}>₹{(props.price * 10).toFixed(2)}</p>
+          <p className={style.price}>₹{(props.price * 70).toFixed(2)}</p>
         </div>
       </NavLink>
     </div>

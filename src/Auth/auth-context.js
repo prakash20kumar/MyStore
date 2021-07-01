@@ -13,10 +13,16 @@ export const AuthContextProvider = (props) => {
   const tokenData = localStorage.getItem("token");
   const [token, setToken] = useState(tokenData);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [vbl, setVbl] = useState(false);
 
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [img, setImg] = useState();
+
+  // if (!tokenData) {
+  //   isLoggedIn(true);
+  //   setVbl(true);
+  // }
 
   const loginHandler = (token) => {
     setIsLoggedIn(true);
